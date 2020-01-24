@@ -1,0 +1,16 @@
+inicializar projecto
+$ npm init --yes
+
+instalar dependencias
+$ npm i express express-handlebars express-session mysql express-mysql-session morgan bcryptjs passport passport-local timeago.js connect-flash express-validator
+
+instalando autocargador de servidor
+$ npm i nodemon -D
+
+Crreando carpetas
+$ mkdir lib public routes views
+
+mysql
+$ mysql -u root -p
+
+$ show database;
