@@ -8,10 +8,13 @@ const path = require('path'); // concatena direcciones
 const flash = require('connect-flash');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
+const passport = require('passport');
+
 const { database } = require('./keys');
 
 // Initializations
 const app = express();
+require('./lib/passport');
 
 // Settings
 app.set('port', process.env.PORT || 4000); //Si existe un puerto en el sistema tomalo si no usa el 400
@@ -38,7 +41,8 @@ app.use(flash()) // Enviamos mensajes
 app.use(morgan('dev')); // parametro dev me muestra determinado mensaje en consola
 app.use(express.urlencoded({ extended: false })) // podemos aceptar los formularios que envian los usuarios  con la propiedad extended: false le decimos que solo queremos formato en string, datros sencillos.
 app.use(express.json()) // habilitamos que nuestra app acepte objetos json
-
+app.use(passport.initialize());
+app.use(passport.session());
 //  Global Variables
 app.use((req, res, next) => {
     app.locals.success = req.flash('success') // importando mensaje success a todas mis vistas
