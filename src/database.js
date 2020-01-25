@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 // el modulo mysql no acepta promesas asi que utilizamos promisify para convertir callbacks a promesas 
 const { promisify } = require('util');
-const { database } = require('./keys');
+const { database } = require('./keys'); // Keys para la db, user, pass,server 
 
 // createPool() = tiene una especie de hilos que se van ejecutando y cada uno lo hace una a la vez
 const pool = mysql.createPool(database); // coneccion a la db
@@ -31,4 +31,4 @@ pool.getConnection((err, connection) => {
 // Promisify pool querys
 pool.query = promisify(pool.query)
 
-module.exports = pool;
+module.exports = pool; * /*

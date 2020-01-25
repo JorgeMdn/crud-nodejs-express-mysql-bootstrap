@@ -2,15 +2,15 @@
 
 // import dependencias
 const express = require('express');
-const morgan = require('morgan');
+const morgan = require('morgan'); // Muestra errores en consola 
 const exphbs = require('express-handlebars'); // plantillas
 const path = require('path'); // concatena direcciones
-const flash = require('connect-flash');
-const session = require('express-session');
+const flash = require('connect-flash'); // Con esto almacena mensajes
+const session = require('express-session'); // Con este modulo podemos usar las sessiones 
 const MySQLStore = require('express-mysql-session');
 const passport = require('passport');
 
-const { database } = require('./keys');
+const { database } = require('./keys'); // Exportamos nuestra configuracion del servidor para usarla en las sesiones
 
 // Initializations
 const app = express();
